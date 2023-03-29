@@ -44,7 +44,7 @@ elif opcion == 'Análisis del S&P 500':
         st.subheader('S&P500 2000-2023')
 
             # Load the S&P 500 data
-        sp500 = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/sp500.csv', header=0, index_col='Date', parse_dates=True)
+        sp500 = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/sp500.csv', sep=',', header=0, index_col='Date', parse_dates=True)
 
         # Create a figure and axis object
         fig, ax = plt.subplots(figsize=(12, 6))
