@@ -44,7 +44,7 @@ elif opcion == 'Análisis del S&P 500':
         st.subheader('S&P500 2000-2023')
 
             # Load the S&P 500 data
-        git 
+        sp500 = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/sp500.csv', header=0, index_col='Date', parse_dates=True)
 
         # Create a figure and axis object
         fig, ax = plt.subplots(figsize=(12, 6))
@@ -97,7 +97,7 @@ elif opcion == 'Análisis del S&P 500':
         gdp_q = gdp.resample('Q').last()
 
         # Load the S&P 500 data
-        sp500 = pd.read_csv('SP500.csv', index_col='Date', parse_dates=True)
+        sp500 = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/sp500.csv', header=0, index_col='Date', parse_dates=True)
 
         # resample the S&P 500 data to monthly frequency
         sp500_adj_close = sp500['Adj Close'].resample('M').last()
@@ -124,7 +124,7 @@ elif opcion == 'Análisis del S&P 500':
         sp500_adj_close = sp500_1960['Adj Close'].resample('Y').last()
 
         # Load the inflation data from the CSV file
-        inflation_df = pd.read_csv('inflacion_USA.csv', index_col='year', parse_dates=True)
+        inflation_df = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/inflacion_USA.csv', header=0, index_col='Date', parse_dates=True)
 
         inflation_factors = 1 + (inflation_df['inflation'] / 100)
         cumulative_inflation_factors = inflation_factors.cumprod()
@@ -173,7 +173,7 @@ elif opcion == 'Análisis del S&P 500':
         fred = Fred(api_key='083c28f1f599f240f0439dd8205695e8')
 
         # Load the S&P 500 data
-        sp500 = pd.read_csv('SP500.csv', index_col='Date', parse_dates=True)
+        sp500 = pd.read_csv('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/sp500.csv', header=0, index_col='Date', parse_dates=True)
 
         # resample the S&P 500 data to monthly frequency
         sp500_adj_close = sp500['Adj Close'].resample('Q').last()
@@ -280,8 +280,8 @@ elif opcion == 'Selección de combinación riesgo-objetivo':
 
     ###############################
 
-
-    df = pd.read_parquet('df_metrics_all.parquet')
+     
+    df = pd.read_parquet('https://github.com/oleaibarra/sp500_recomendaciones/blob/main/df_metrics_all.parquet')
     tickers = np.array(df.index).tolist()
     daily_volume = df['daily_volume'].to_dict()
     market_cap = df['market_cap'].to_dict()
